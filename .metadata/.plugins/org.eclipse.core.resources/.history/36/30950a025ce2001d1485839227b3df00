@@ -1,0 +1,23 @@
+package com.kh.mybatis.member.model.service;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.mybatis.common.template.Template;
+import com.kh.mybatis.member.model.dao.MemberDao;
+import com.kh.mybatis.member.model.vo.Member;
+
+public class MemberService {
+	
+	private MemberDao memberDao = new MemberDao();
+	
+	public Member loginMember(Member m) {
+		// connection객체 반환
+		SqlSession sqlSession = Template.getSqlSession();
+		Member loginUser = memberDao.loginMember(sqlSession, m);
+		
+		// connection객체 닫기
+		sqlSession.close();
+		
+		return loginUser;
+	}
+}

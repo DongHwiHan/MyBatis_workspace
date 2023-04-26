@@ -1,0 +1,19 @@
+package com.kh.mybatis.member.model.service;
+
+import com.kh.mybatis.member.model.dao.MemberDao;
+import com.kh.mybatis.member.model.vo.Member;
+
+public class MemberService {
+	
+	private MemberDao memberDao = new MemberDao();
+	
+	public Member loginMember(Member m) {
+		// connection객체 반환
+		
+		Member loginUser = memberDao.loginMember(, m);
+		
+		// connection객체 닫기
+		
+		return loginUser;
+	}
+}
